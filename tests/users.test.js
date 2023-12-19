@@ -1,5 +1,5 @@
 const request = require("supertest");
-
+const database = require('../config/database');
 const app = require("../src/app");
 
 describe("GET /api/users", () => {

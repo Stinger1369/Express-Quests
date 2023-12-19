@@ -1,3 +1,6 @@
+CREATE DATABASE express_quests;
+USE express_quests;
+
 DROP TABLE IF EXISTS movies;
 
 CREATE TABLE movies (
@@ -111,3 +114,9 @@ VALUES
     'Milan',
     'Spanish'
   );
+
+
+SELECT * FROM movies;
+CREATE USER 'rout'@'localhost';
+GRANT ALL PRIVILEGES ON express_quests.* TO 'rout'@'localhost';
+FLUSH PRIVILEGES;
