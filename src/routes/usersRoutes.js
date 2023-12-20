@@ -54,4 +54,21 @@ router.get('/api/users/:id', async (req, res) => {
   }
 });
 
+
+router.post('/api/users', async (req, res) => {
+  try {
+      const { firstname, lastname, email, city, language } = req.body;
+
+      // Validation des données (à implémenter)
+
+      // Requête SQL pour insérer l'utilisateur
+      const sql = 'INSERT INTO users (firstname, lastname, email, city, language) VALUES (?, ?, ?, ?, ?)';
+      await database.query(sql, [firstname, lastname, email, city, language]);
+
+      res.status(201).send('Utilisateur créé avec succès');
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Erreur serveur');
+  }
+});
 module.exports = router;
